@@ -5,6 +5,7 @@
  */
 package paquete02;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Ejecutor {
@@ -18,10 +19,11 @@ public class Ejecutor {
         boolean bandera;
         String opcion;
         Scanner entrada = new Scanner(System.in);
+         entrada.useLocale(Locale.US);
         String cadenaFinal;
         // Inicio de proceso iterativo 
         bandera = true;
-        cadenaFinal = ""; // inicializo la variable que contendrá la cadena
+        cadenaFinal = ""; // inicializo la variable que contendrá la cadena  si la cadena esta en el ciclo va dar un valor vacio
         // final.
         while (bandera) { // bandera == true
             System.out.println("Ingrese el nombre del vendedor");

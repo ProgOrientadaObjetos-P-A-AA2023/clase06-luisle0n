@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package paquete01;
+package paquete04;
 
 import java.util.Locale;
 import java.util.Scanner;
+import paquete02.Ejecutor;
+import paquete02.Vendedor;
 
-public class Ejecutor {
+public class Principal {
 
     public static void main(String[] args) {
-        // variables para ingreso de datos
         String nombre;
         int edad;
         double sMinino;
@@ -20,10 +16,12 @@ public class Ejecutor {
         String opcion;
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
+        String cadenaFinal;
         // Inicio de proceso iterativo 
-        bandera = true;
-        // bandera se hace falso y luego lo compar con el while y como bandera en falto el cilco es falso lo cual sale del ciclo
-        while (bandera) { // bandera == true
+        int contador = 3;
+        cadenaFinal = ""; // inicializo la variable que contendrá la cadena  si la cadena esta en el ciclo va dar un valor vacio
+        // final.
+        for (int i = 1; i <= contador ; i++) {
             System.out.println("Ingrese el nombre del vendedor");
             nombre = entrada.nextLine();
             System.out.println("Ingrese edad del vendedor");
@@ -34,27 +32,27 @@ public class Ejecutor {
             autos = entrada.nextInt();
 
             // con los datos ingresados se crea el objeto de tipo Vendedor
-            Vendedor v = new Vendedor(nombre, edad, sMinino, 
+            Vendedor v = new Vendedor(nombre, edad, sMinino,
                     autos);
             v.calcularPagoMensual();
-            System.out.printf("Datos de Vendedor\n"
+            cadenaFinal = String.format("%sDatos de Vendedor\n"
                     + "Nombre: %s\n"
                     + "Edad: %s\n"
                     + "Salario mínimo: %.2f\n"
                     + "Número de autos: %d\n"
-                    + "Pago mensual: %.2f\n", v.obtenerNombres(), 
-                    v.obtenerEdad(),
+                    + "Pago mensual: %.2f\n\n",
+                    cadenaFinal,
+                    v.obtenerNombres(), v.obtenerEdad(),
                     v.obtenerSalarioMinimo(), v.obtenerNumeroAutos(),
                     v.obtenerPagoMensual());
-
-            entrada.nextLine(); // limpieza del buffer
-            System.out.println("Desea ingresar más vendedores. Ingrese n para"
-                    + "salir");
-            opcion = entrada.nextLine();
-            if (opcion.equals("n")) {
-                bandera = false;
-            }
+            entrada.nextLine();
 
         }
+        // cuando se sale del ciclo repetitivo debemos presentar en pantalla
+        // el valor de cadena final
+        System.out.printf("%s\n", cadenaFinal);
+       
+      
+           
     }
 }
