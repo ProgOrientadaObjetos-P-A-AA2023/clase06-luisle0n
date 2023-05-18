@@ -15,11 +15,16 @@ public class Calificacion {
     private String nombreMateria;
     private Profesor profesor;
 
-    public Calificacion(double n, String nombre) {
+    public Calificacion(double n, String nombre,Profesor pro) {
         nota = n;
         nombreMateria = nombre;
+        profesor=pro;
     }
-
+      public Calificacion(double n, String nombre) {
+        nota = n;
+        nombreMateria = nombre;
+       
+    }
     public void establecerNota(double n) {
         nota = n;
     }
