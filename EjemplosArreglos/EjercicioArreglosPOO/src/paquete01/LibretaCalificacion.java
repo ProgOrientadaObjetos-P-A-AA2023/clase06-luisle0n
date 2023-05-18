@@ -5,6 +5,8 @@
  */
 package paquete01;
 
+import paquete04.Colegio;
+
 /**
  *
  * @author reroes
@@ -15,13 +17,15 @@ public class LibretaCalificacion {
     private double promedio;
     private String promedioCualitativo;
     private double[] calificaciones;
-    // private Colegio c;
+    
+     private Colegio colegio;
 
-    public LibretaCalificacion(String n, double[] c) {
+    public LibretaCalificacion(String n, double[] c,Colegio col) {
         estudiante = n;
         calificaciones = c;
+        colegio=col;
     }
-
+    
     public void establecerEstudiante(String n) {
         estudiante = n;
     }
@@ -36,7 +40,9 @@ public class LibretaCalificacion {
 
         promedio = suma / obtenerCalificaciones().length;
     }
-
+    public void estabelcerColegio(Colegio cole){
+        colegio=cole;
+    }
     public void establecerPromedioCualitativo() {
         if ((obtenerPromedio() >= 0) && (obtenerPromedio() <= 3.09)) {
             promedioCualitativo = "Regular";
@@ -68,7 +74,9 @@ public class LibretaCalificacion {
     public String obtenerEstudiante() {
         return estudiante;
     }
-
+    public Colegio obtenerColegio(){
+        return colegio;
+    }
     public double obtenerPromedio() {
         return promedio;
     }
@@ -84,8 +92,8 @@ public class LibretaCalificacion {
     @Override
     public String toString() {
         String cadena = "Libreta de Calificaciones\n";
-        cadena = String.format("%sNombre: %s\nCalificaciones:\n", cadena,
-                obtenerEstudiante());
+        cadena = String.format("%sColegio %s\nCuidad %s\nNombre: %s\nCalificaciones:\n", cadena,colegio.obtenerNombre(),
+                colegio.obtenerCuidad(),obtenerEstudiante());
         // cadena = String.format("%sNombre: %s\nCalificaciones:\n", cadena,
         //        estudiante);
         
